@@ -57,7 +57,7 @@ conn = psql.connect(
 )
 
 cur=conn.cursor()
-Test=['SuperAbz','shadeisalive','Deejayah']
+Test=['SuperAbz','shadeisalive','Deejayah','Flommingsen']
 for x in Test:
     userData=getUserDetails(x)
 
