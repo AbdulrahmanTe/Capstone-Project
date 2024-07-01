@@ -57,33 +57,35 @@ conn = psql.connect(
 )
 
 cur=conn.cursor()
+Test=['SuperAbz','shadeisalive','Deejayah']
+for x in Test:
+    userData=getUserDetails(x)
 
-userData=getUserDetails('Deejayah')
+    sql = """
+    INSERT INTO student.de10ATCapstoneProject (user_name, steam_id, avatar_url, game_name1,game_img1,game_url1,playtime1,game_name2, game_img2, game_url2, playtime2,game_name3, game_img3, game_url3, playtime3)
+    VALUES (%s, %s, %s, %s,%s, %s, %s, %s,%s, %s, %s, %s,%s, %s, %s)
+    """
 
-sql = """
-INSERT INTO student.de10ATCapstoneProject (user_name, steam_id, avatar_url, game_name1,game_img1,game_url1,playtime1,game_name2, game_img2, game_url2, playtime2,game_name3, game_img3, game_url3, playtime3)
-VALUES (%s, %s, %s, %s,%s, %s, %s, %s,%s, %s, %s, %s,%s, %s, %s)
-"""
+    # Execute the query with parameters
+    cur.execute(sql, (
+        userData[0],
+        userData[1],
+        userData[2],
+        userData[3],
+        userData[4],
+        userData[5],
+        userData[6],
+        userData[7],
+        userData[8],
+        userData[9],
+        userData[10],
+        userData[11],
+        userData[12],
+        userData[13],
+        userData[14]
+    ))
 
-# Execute the query with parameters
-cur.execute(sql, (
-    userData[0],
-    userData[1],
-    userData[2],
-    userData[3],
-    userData[4],
-    userData[5],
-    userData[6],
-    userData[7],
-    userData[8],
-    userData[9],
-    userData[10],
-    userData[11],
-    userData[12],
-    userData[13],
-    userData[14]
-))
-conn.commit()
+    conn.commit()
 
 
 cur.close()
