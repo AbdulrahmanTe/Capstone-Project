@@ -4,10 +4,10 @@ import os
 import psycopg2 as psql
 import requests
 
-load_dotenv()
+#load_dotenv()
 
 KEY = os.getenv('STEAM_API_KEY')
-User = os.getenv('User')
+User = os.getenv('User')    
 Password = os.getenv('Password')
 Host = os.getenv('Host')
 Database = os.getenv('Database')
