@@ -6,12 +6,24 @@ import requests
 
 #load_dotenv()
 
-KEY = os.getenv('STEAM_API_KEY')
-User = os.getenv('User')    
-Password = os.getenv('Password')
-Host = os.getenv('Host')
-Database = os.getenv('Database')
-Port = os.getenv('Port')
+#KEY = os.getenv('STEAM_API_KEY')
+KEY=st.secrets['key']
+
+#User = os.getenv('User')
+User=st.secrets['User']
+    
+P#assword = os.getenv('Password')
+Password=st.secrets['Password']
+
+#Host = os.getenv('Host')
+Host=st.secrets['Host']
+
+#Database = os.getenv('Database')
+Database=st.secrets['Database']
+
+#Port = os.getenv('Port')
+Port=st.secrets['Port']
+
 
 conn = psql.connect(
     database=Database,
