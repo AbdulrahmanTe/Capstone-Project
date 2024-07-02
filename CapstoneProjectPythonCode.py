@@ -56,37 +56,29 @@ conn = psql.connect(
     port=Port
 )
 
-cur=conn.cursor()
-Test=['SuperAbz','shadeisalive','Deejayah','Flommingsen']
-for x in Test:
-    userData=getUserDetails(x)
+cur = conn.cursor()
 
-    sql = """
-    INSERT INTO student.de10ATCapstoneProject (user_name, steam_id, avatar_url, game_name1,game_img1,game_url1,playtime1,game_name2, game_img2, game_url2, playtime2,game_name3, game_img3, game_url3, playtime3)
-    VALUES (%s, %s, %s, %s,%s, %s, %s, %s,%s, %s, %s, %s,%s, %s, %s)
-    """
 
-    # Execute the query with parameters
-    cur.execute(sql, (
-        userData[0],
-        userData[1],
-        userData[2],
-        userData[3],
-        userData[4],
-        userData[5],
-        userData[6],
-        userData[7],
-        userData[8],
-        userData[9],
-        userData[10],
-        userData[11],
-        userData[12],
-        userData[13],
-        userData[14]
-    ))
+cur.execute("SELECT user_name FROM student.de10ATCapstoneProject")
+user_names = cur.fetchall()
 
-    conn.commit()
+for user_name_tuple in user_names:
+    user_name = user_name_tuple[0]
+    userData = getUserDetails(user_name)
+    if userData:
+        sql = """
+        UPDATE student.de10ATCapstoneProject SET steam_id = %s, avatar_url = %s, game_name1 = %s, game_img1 = %s, game_url1 = %s, playtime1 = %s,game_name2 = %s, game_img2 = %s, game_url2 = %s, playtime2 = %s,game_name3 = %s, game_img3 = %s, game_url3 = %s, playtime3 = %s
+        WHERE user_name = %s
+        """
 
+        
+        cur.execute(sql, (
+            userData[1], userData[2], userData[3], userData[4], userData[5], userData[6],
+            userData[7], userData[8], userData[9], userData[10], userData[11], userData[12],
+            userData[13], userData[14], userData[0]
+        ))
+
+        conn.commit()
 
 cur.close()
 conn.close()
