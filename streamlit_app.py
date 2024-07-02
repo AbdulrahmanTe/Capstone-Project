@@ -1,28 +1,28 @@
 import streamlit as st
-#from dotenv import load_dotenv
+from dotenv import load_dotenv
 import os
 import psycopg2 as psql
 import requests
 
-#load_dotenv()
+load_dotenv()
 
-#KEY = os.getenv('STEAM_API_KEY')
-KEY=st.secrets['key']
+KEY = os.getenv('STEAM_API_KEY')
+#KEY=st.secrets['key']
 
-#User = os.getenv('User')
-User=st.secrets['User']
+User = os.getenv('User')
+#User=st.secrets['User']
     
-P#assword = os.getenv('Password')
-Password=st.secrets['Password']
+Password = os.getenv('Password')
+#Password=st.secrets['Password']
 
-#Host = os.getenv('Host')
-Host=st.secrets['Host']
+Host = os.getenv('Host')
+#Host=st.secrets['Host']
 
-#Database = os.getenv('Database')
-Database=st.secrets['Database']
+Database = os.getenv('Database')
+#Database=st.secrets['Database']
 
-#Port = os.getenv('Port')
-Port=st.secrets['Port']
+Port = os.getenv('Port')
+#Database=st.secrets['Database']
 
 
 conn = psql.connect(
