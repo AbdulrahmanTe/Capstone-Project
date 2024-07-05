@@ -6,6 +6,10 @@ name = "pypi"
 [packages]
 streamlit = "*"
 pandas = "*"
+dotenv = "*"
+os = "*"
+psycopg2 = "*"
+requests = "*"
 
 [dev-packages]
 
