@@ -1,0 +1,7 @@
+streamlit 
+pandas 
+dotenv 
+os 
+psycopg2 
+requests 
+python-steam-api
