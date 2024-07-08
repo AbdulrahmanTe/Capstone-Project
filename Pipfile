@@ -10,6 +10,7 @@ dotenv = "*"
 os = "*"
 psycopg2 = "*"
 requests = "*"
+python-steam-api = "*"
 
 [dev-packages]
 
